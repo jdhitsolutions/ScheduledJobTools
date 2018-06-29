@@ -1,3 +1,41 @@
+
+Function Remove-OldJobResult {
+    [cmdletbinding(SupportsShouldProcess, DefaultParameterSetName = "name")]
+
+    Param(
+        [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "name")]
+        [ValidateNotNullorEmpty()]
+        [string[]]$Name,
+
+        [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "job")]
+        [ValidateNotNullorEmpty()]
+        [alias("job")]
+        [Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition]$ScheduledJob
+    )
+
+    Begin {
+        Write-Verbose "[$((Get-Date).TimeofDay)   BEGIN] Starting $($myinvocation.mycommand)"
+    } #begin
+
+    Process {
+        #get all but newest job result for cleanup
+        if ($PSCmdlet.ParameterSetName -eq 'name') {
+            $items = $Name
+        }
+        else {
+            $items = $ScheduledJob.Name
+        }
+        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Removing old job results for $($items -join ',')"
+        Get-Job -name $items | sort-object PSEndTime -descending | Select-Object -skip 1  |
+        Remove-Job
+    } #process
+
+    End {
+        Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
+    } #end
+}
+
+
 Function Export-ScheduledJob {
 
     [cmdletbinding(SupportsShouldProcess, DefaultParameterSetName = "name")]

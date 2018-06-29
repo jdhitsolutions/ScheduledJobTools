@@ -7,7 +7,7 @@
 ModuleToProcess = 'ScheduledJobTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.2'
+ModuleVersion = '1.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -64,7 +64,7 @@ FormatsToProcess = @()
 NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport ="Export-ScheduledJob","Import-ScheduledJob","Get-ScheduledJobResult"
+FunctionsToExport ="Export-ScheduledJob","Import-ScheduledJob","Get-ScheduledJobResult","Remove-OldJobResult"
 
 # Cmdlets to export from this module
 CmdletsToExport = ""

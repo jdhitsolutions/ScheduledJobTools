@@ -54,15 +54,23 @@ Class ScheduledJobResult {
 #set default display properties
 Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, Starttime, Endtime, HasMoreData -Force
 
-Register-ArgumentCompleter -CommandName Export-ScheduledJob, Get-ScheduledJobResult -ParameterName Name -ScriptBlock {
+
+$sb = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     (Get-ScheduledJob -Name "$wordtoComplete*").name | foreach-object {
         [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
 }
+
+$completerParams = @{
+    CommandName   = 'Export-ScheduledJob', 'Get-ScheduledJobResult', 'Remove-OldJobResult'
+    ParameterName = 'Name' 
+    ScriptBlock   = $sb 
+}
+Register-ArgumentCompleter  @completerParams
     
 Set-Alias -Name isj -Value Import-ScheduledJob
 Set-Alias -Name esj -Value Export-ScheduledJob
 Set-Alias -Name ljr -Value Get-ScheduledJobResult
     
-Export-ModuleMember -Function Export-ScheduledJob, Import-ScheduledJob, Get-ScheduledJobResult -Alias isj, esj, ljr
+Export-ModuleMember -Function Export-ScheduledJob, Import-ScheduledJob, Get-ScheduledJobResult, Remove-OldJobResult -Alias isj, esj, ljr

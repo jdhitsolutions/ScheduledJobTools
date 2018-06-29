@@ -1,5 +1,9 @@
 #ChangeLog for ScheduledJobTools
 
+v1.3
+Added Remove-OldJobResult
+Updated README
+
 v1.2
 moved to external help
 code cleanup

@@ -8,12 +8,12 @@ Install-Module ScheduledJobTools
 
 The module consists of these commands:
 
-[Export-ScheduledJob](./docs/export-scheduledjob.md )
+[Export-ScheduledJob](/docs/Export-ScheduledJob.md )
 
-[Import-ScheduledJob](./docs/import-scheduledjob.md)
+[Import-ScheduledJob](/docs/Import-ScheduledJob.md)
 
-[Get-ScheduledJobResult](./docs/get-scheduledjobresult.md)
+[Get-ScheduledJobResult](/docs/Get-ScheduledJobrResult.md)
 
-[Remove-OldJobResult](./docs/remove-oldjobresult.md)
+[Remove-OldJobResult](/docs/Remove-OldJobResult.md)
 
-* last updated 29 June, 2018 *
+*last updated 29 June, 2018*

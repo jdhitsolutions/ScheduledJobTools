@@ -4,10 +4,10 @@
 @{
 
 # Script module or binary module file associated with this manifest
-ModuleToProcess = 'ScheduledJobTools.psm1'
+RootModule = 'ScheduledJobTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.3'
+ModuleVersion = '1.3.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -25,7 +25,7 @@ CompanyName = 'JDH Information Technology Solutions, Inc.'
 Copyright = '(c)2013-18 All Rights Reserved'
 
 # Description of the functionality provided by this module
-Description = 'A PowerShell module for exporting and importing scheduled jobs'
+Description = 'A PowerShell module for managing scheduled jobs and their results.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -46,7 +46,7 @@ CLRVersion = ''
 ProcessorArchitecture = 'None'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @("PSScheduledJob")
+RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -86,6 +86,7 @@ PrivateData = @{
 
     PSData = @{
 
+        ExternalModuleDependencies = 'PSScheduledJob'
         # Tags applied to this module. These help with module discovery in online galleries.
         Tags = @('scheduledjob')
 

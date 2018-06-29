@@ -1,5 +1,9 @@
 #ChangeLog for ScheduledJobTools
 
+v1.3.1
+manifest changes
+published to PowerShell Gallery
+
 v1.3
 Added Remove-OldJobResult
 Updated README

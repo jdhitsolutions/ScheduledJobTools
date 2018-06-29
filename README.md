@@ -16,4 +16,6 @@ The module consists of these commands:
 
 [Remove-OldJobResult](/docs/Remove-OldJobResult.md)
 
+[Get-ScheduledJobDetail](/docs/Get-ScheduledJobDetail.md)
+
 *last updated 29 June, 2018*

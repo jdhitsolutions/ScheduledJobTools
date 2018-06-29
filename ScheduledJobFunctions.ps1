@@ -1,3 +1,81 @@
+Function Get-ScheduledJobDetail {
+    [CmdletBinding()]
+
+    Param(
+        [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "name")]
+        [ValidateNotNullorEmpty()]
+        [string[]]$Name,
+
+        [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "job")]
+        [ValidateNotNullorEmpty()]
+        [alias("job")]
+        [Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition]$ScheduledJob
+    )
+
+    Begin {
+        Write-Verbose "[$((Get-Date).TimeofDay)   BEGIN] Starting $($myinvocation.mycommand)"
+    } #begin
+    
+    Process {
+        $jobs = @()
+        if ($PSCmdlet.ParameterSetName -eq 'name') {
+            foreach ($item in $name) {
+                Try {
+                    Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob $item"
+                    $jobs += Get-Scheduledjob -Name $item -ErrorAction Stop
+                }
+                Catch {
+                    Write-Warning $_.exception.message
+                }
+            }
+        } #if Name
+        else {
+            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Using scheduledjob $($scheduledjob.name)"
+            $jobs += $ScheduledJob
+        }
+
+        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob details"
+        foreach ($job in $jobs) {
+            #get corresponding task
+            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] $($job.name)"
+            $task = Get-ScheduledTask -TaskName $job.name
+            $info = $task | Get-ScheduledTaskInfo
+            [pscustomobject]@{
+                ID                     = $job.ID
+                Name                   = $job.name
+                Command                = $job.command
+                Enabled                = $job.enabled
+                State                  = $task.State
+                NextRun                = $info.nextRunTime
+                MaxHistory             = $job.ExecutionHistoryLength
+                RunAs                  = $task.Principal.UserID
+                Frequency              = $job.JobTriggers.Frequency
+                Days                   = $job.JobTriggers.DaysOfWeek
+                RepetitionDuration     = $job.JobTriggers.RepetitionDuration
+                RepetitionInterval     = $job.JobTriggers.RepetitionInterval
+                DoNotAllowDemandStart  = $job.options.DoNotAllowDemandStart
+                IdleDuration           = $job.options.IdleDuration
+                IdleTimeout            = $job.options.IdleTimeout
+                MultipleInstancePolicy = $job.options.MultipleInstancePolicy
+                RestartOnIdleResume    = $job.options.RestartOnIdleResume
+                RunElevated            = $job.options.RunElevated
+                RunWithoutNetwork      = $job.options.RunWithoutNetwork
+                ShowInTaskScheduler    = $job.options.ShowInTaskScheduler
+                StartIfNotIdle         = $job.options.StartIfNotIdle
+                StartIfOnBatteries     = $job.options.StartIfOnBatteries
+                StopIfGoingOffIdle     = $job.options.StopIfGoingOffIdle
+                StopIfGoingOnBatteries = $job.options.StopIfGoingOnBatteries
+                WakeToRun              = $job.options.WakeToRun
+            }
+            
+        } #foreach job
+        
+    } #process
+
+    End {
+        Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
+    } #end
+}
 
 Function Remove-OldJobResult {
     [cmdletbinding(SupportsShouldProcess, DefaultParameterSetName = "name")]
@@ -26,8 +104,8 @@ Function Remove-OldJobResult {
             $items = $ScheduledJob.Name
         }
         Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Removing old job results for $($items -join ',')"
-        Get-Job -name $items | sort-object PSEndTime -descending | Select-Object -skip 1  |
-        Remove-Job
+        Get-Job -name $items | Sort-Object PSEndTime -descending | Select-Object -skip 1  |
+            Remove-Job
     } #process
 
     End {

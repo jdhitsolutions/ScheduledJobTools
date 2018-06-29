@@ -1,5 +1,8 @@
 #ChangeLog for ScheduledJobTools
 
+v1.4.0
+Added Get-ScheduledJobDetail
+
 v1.3.1
 manifest changes
 published to PowerShell Gallery

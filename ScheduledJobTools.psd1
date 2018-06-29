@@ -67,7 +67,7 @@ NestedModules = @()
 FunctionsToExport ="Export-ScheduledJob","Import-ScheduledJob","Get-ScheduledJobResult","Remove-OldJobResult"
 
 # Cmdlets to export from this module
-CmdletsToExport = ""
+CmdletsToExport = @()
 
 # Variables to export from this module
 VariablesToExport = @()
@@ -87,13 +87,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('scheduledjob')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/jdhitsolutions/scheduledjobtools/blob/v1.3/License.txt'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/jdhitsolutions/scheduledjobtools/tree/v1.3'
 
         # A URL to an icon representing this module.
         # IconUri = ''

@@ -54,7 +54,7 @@ Class ScheduledJobResult {
 #set default display properties
 Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, Starttime, Endtime, HasMoreData -Force
 
-
+#add argument completers to auto populate scheduled job names
 $sb = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     (Get-ScheduledJob -Name "$wordtoComplete*").name | foreach-object {
@@ -68,6 +68,8 @@ $completerParams = @{
     ScriptBlock   = $sb 
 }
 Register-ArgumentCompleter  @completerParams
+
+#define some aliases
     
 Set-Alias -Name isj -Value Import-ScheduledJob
 Set-Alias -Name esj -Value Export-ScheduledJob

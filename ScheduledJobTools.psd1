@@ -7,7 +7,10 @@
 ModuleToProcess = 'ScheduledJobTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.1'
+ModuleVersion = '1.2'
+
+# Supported PSEditions
+# CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
 GUID = '35b74812-dfdb-405f-a3bd-5178dcd9827e'
@@ -25,13 +28,13 @@ Copyright = '(c)2013-18 All Rights Reserved'
 Description = 'A PowerShell module for exporting and importing scheduled jobs'
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '3.0'
+PowerShellVersion = '5.0'
 
 # Name of the Windows PowerShell host required by this module
 PowerShellHostName = ''
 
 # Minimum version of the Windows PowerShell host required by this module
-PowerShellHostVersion = '3.0'
+PowerShellHostVersion = '5.0'
 
 # Minimum version of the .NET Framework required by this module
 DotNetFrameworkVersion = ''
@@ -43,7 +46,7 @@ CLRVersion = ''
 ProcessorArchitecture = 'None'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @()
+RequiredModules = @("PSScheduledJob")
 
 # Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -61,7 +64,7 @@ FormatsToProcess = @()
 NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport ="*"
+FunctionsToExport ="Export-ScheduledJob","Import-ScheduledJob","Get-ScheduledJobResult"
 
 # Cmdlets to export from this module
 CmdletsToExport = ""
@@ -70,7 +73,7 @@ CmdletsToExport = ""
 VariablesToExport = @()
 
 # Aliases to export from this module
-AliasesToExport = "*"
+AliasesToExport = "esj","isj","ljr"
 
 # List of all modules packaged with this module
 ModuleList = @()
@@ -79,7 +82,34 @@ ModuleList = @()
 FileList = @()
 
 # Private data to pass to the module specified in ModuleToProcess
-PrivateData = ''
+PrivateData = @{
+
+    PSData = @{
+
+        # Tags applied to this module. These help with module discovery in online galleries.
+        # Tags = @()
+
+        # A URL to the license for this module.
+        # LicenseUri = ''
+
+        # A URL to the main website for this project.
+        # ProjectUri = ''
+
+        # A URL to an icon representing this module.
+        # IconUri = ''
+
+        # ReleaseNotes of this module
+        # ReleaseNotes = ''
+
+    } # End of PSData hashtable
+
+} # End of PrivateData hashtable
+
+# HelpInfo URI of this module
+# HelpInfoURI = ''
+
+# Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
+# DefaultCommandPrefix = ''
 
 }
 

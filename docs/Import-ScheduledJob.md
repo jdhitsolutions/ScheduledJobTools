@@ -13,7 +13,7 @@ Import a PowerShell scheduled job from an XML file.
 
 ## SYNTAX
 
-```none
+```yaml
 Import-ScheduledJob [-Path] <String> [-Passthru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -103,7 +103,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String
+
 ## OUTPUTS
+
+### None
+
+### Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
 
 ## NOTES
 

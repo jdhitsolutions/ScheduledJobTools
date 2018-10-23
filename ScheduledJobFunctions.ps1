@@ -1,5 +1,6 @@
 Function Get-ScheduledJobDetail {
     [CmdletBinding()]
+    [OutputType("PSCustomObject")]
 
     Param(
         [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "name")]
@@ -79,6 +80,7 @@ Function Get-ScheduledJobDetail {
 
 Function Remove-OldJobResult {
     [cmdletbinding(SupportsShouldProcess, DefaultParameterSetName = "name")]
+    [OutputType("None")]
 
     Param(
         [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "name")]
@@ -117,6 +119,8 @@ Function Remove-OldJobResult {
 Function Export-ScheduledJob {
 
     [cmdletbinding(SupportsShouldProcess, DefaultParameterSetName = "name")]
+    [OutputType("None","System.IO.FileInfo")]
+    [Alias("esj")]
 
     Param(
         [Parameter(Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = "name")]
@@ -239,6 +243,8 @@ Function Export-ScheduledJob {
 Function Import-ScheduledJob {
 
     [cmdletbinding(SupportsShouldProcess)]
+    [OutputType("None","Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition")]
+    [Alias("isj")]
 
     Param(
         [Parameter(Position = 0, Mandatory, ValueFromPipeline)]
@@ -426,6 +432,9 @@ Function Import-ScheduledJob {
 Function Get-ScheduledJobResult {
     
     [cmdletbinding()]
+    [OutputType("ScheduledJobResult")]
+    [Alias("ljr")]
+
     Param(
         [Parameter(Position = 0)]
         [ValidateNotNullorEmpty()]

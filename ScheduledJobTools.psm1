@@ -69,11 +69,3 @@ $completerParams = @{
 }
 Register-ArgumentCompleter  @completerParams
 
-#define some aliases
-    
-Set-Alias -Name isj -Value Import-ScheduledJob
-Set-Alias -Name esj -Value Export-ScheduledJob
-Set-Alias -Name ljr -Value Get-ScheduledJobResult
-    
-Export-ModuleMember -Function Export-ScheduledJob,Import-ScheduledJob,Get-ScheduledJobResult, 
-Remove-OldJobResult,Get-ScheduledJobDetail -Alias isj, esj, ljr

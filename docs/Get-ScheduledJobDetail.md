@@ -15,13 +15,13 @@ Get details for a PowerShell Scheduled Job
 
 ### name
 
-```none
+```yaml
 Get-ScheduledJobDetail [-Name] <String[]> [<CommonParameters>]
 ```
 
 ### job
 
-```none
+```yaml
 Get-ScheduledJobDetail [-ScheduledJob] <ScheduledJobDefinition> [<CommonParameters>]
 ```
 
@@ -67,7 +67,6 @@ WakeToRun              : False
 
 Get job details for a single scheduled job.
 
-
 ### Example 2
 
 ```powershell
@@ -112,8 +111,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -18,4 +18,4 @@ The module consists of these commands:
 
 [Get-ScheduledJobDetail](/docs/Get-ScheduledJobDetail.md)
 
-*last updated 29 June, 2018*
+*last updated 23 October 2018*

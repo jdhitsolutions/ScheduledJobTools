@@ -15,13 +15,13 @@ Export a PowerShell scheduled job
 
 ### name (Default)
 
-```none
+```yaml
 Export-ScheduledJob [-Name] <String> [-Path <String>] [-Passthru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### job
 
-```none
+```yaml
 Export-ScheduledJob [-ScheduledJob] <ScheduledJobDefinition> [-Path <String>] [-Passthru] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -101,8 +101,7 @@ Accept wildcard characters: False
 
 ### -Path
 
-The path to store the xml file. The file name will be the same as the job name.
-The default is the current location.
+The path to store the xml file. The file name will be the same as the job name. The default is the current location.
 
 ```yaml
 Type: String
@@ -154,7 +153,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String
+
+### Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
+
 ## OUTPUTS
+
+### None
+
+### System.IO.FileInfo
 
 ## NOTES
 

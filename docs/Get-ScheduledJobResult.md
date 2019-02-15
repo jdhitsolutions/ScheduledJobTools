@@ -31,21 +31,12 @@ The command uses a custom type definition based on the Job object.
 PS C:\> Get-ScheduledJobResult
 
 
-Name        : Download PowerShell Help
-ID          : 236
-State       : Completed
-Runtime     : 00:00:04.0070000
-Starttime   : 6/28/2018 8:00:07 AM
-Endtime     : 6/28/2018 8:00:11 AM
-HasMoreData : False
-
-Name        : Daily Work Backup
-ID          : 237
-State       : Completed
-Runtime     : 00:00:01.6789112
-Starttime   : 6/28/2018 6:00:07 PM
-Endtime     : 6/28/2018 6:00:08 PM
-HasMoreData : True
+ID Name            StartTime             EndTime               Runtime          State
+-- ----            ---------             -------               -------          -----
+20 OfflineTickle   2/15/2019 12:00:08 PM 2/15/2019 12:00:09 PM 00:00:00.9199788 Completed
+25 DownloadHelp    2/15/2019 8:00:04 AM  2/15/2019 8:00:06 AM  00:00:02.2474913 Completed
+44 RemoteOpWatcher 2/15/2019 12:49:53 PM 2/15/2019 12:49:53 PM 00:00:00.4630425 Completed
+15 myTasksEmail    2/15/2019 8:00:04 AM  2/15/2019 8:00:06 AM  00:00:01.6949456 Completed
 ```
 
 ### EXAMPLE 2
@@ -53,32 +44,30 @@ HasMoreData : True
 ```powershell
 PS C:\> Get-ScheduledJobResult myTasksEmail -newest 3
 
-Name        : myTasksEmail
-ID          : 231
-State       : Completed
-Runtime     : 00:00:01.7045444
-Starttime   : 6/28/2018 7:00:06 AM
-Endtime     : 6/28/2018 7:00:08 AM
-HasMoreData : True
-
-Name        : myTasksEmail
-ID          : 230
-State       : Completed
-Runtime     : 00:00:01.6864100
-Starttime   : 6/27/2018 7:00:07 AM
-Endtime     : 6/27/2018 7:00:09 AM
-HasMoreData : True
-
-Name        : myTasksEmail
-ID          : 229
-State       : Completed
-Runtime     : 00:00:01.8097321
-Starttime   : 6/26/2018 7:00:07 AM
-Endtime     : 6/26/2018 7:00:09 AM
-HasMoreData : True
+ID Name         StartTime            EndTime              Runtime          State
+-- ----         ---------            -------              -------          -----
+15 myTasksEmail 2/15/2019 8:00:04 AM 2/15/2019 8:00:06 AM 00:00:01.6949456 Completed
+14 myTasksEmail 2/14/2019 8:00:04 AM 2/14/2019 8:00:06 AM 00:00:01.6648106 Completed
+13 myTasksEmail 2/13/2019 8:00:04 AM 2/13/2019 8:00:05 AM 00:00:01.4718193 Completed
 ```
 
 Get the newest 3 job results for the myTasksEmail scheduled job.
+
+### EXAMPLE 3
+
+```powershell
+PS C:\> Get-ScheduledJobResult offlinetickle | format-list
+
+Name        : OfflineTickle
+ID          : 20
+State       : Completed
+Runtime     : 00:00:00.9199788
+Starttime   : 2/15/2019 12:00:08 PM
+Endtime     : 2/15/2019 12:00:09 PM
+HasMoreData : True
+```
+
+Get all properties of the result object.
 
 ## PARAMETERS
 

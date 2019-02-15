@@ -14,7 +14,7 @@ Class ScheduledJobResult {
 
     [PSObject[]] GetResults() {
         if ($this.HasMoreData) {
-            $data = Receive-job -id $this.id -keep 
+            $data = Receive-Job -id $this.id -keep
         }
         else {
             $data = $null
@@ -48,9 +48,9 @@ Class ScheduledJobResult {
         $this.Output = $job.Output
 
     }
-    
+
 }
-   
+
 #set default display properties
 Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, Starttime, Endtime, HasMoreData -Force
 
@@ -64,8 +64,8 @@ $sb = {
 
 $completerParams = @{
     CommandName   = 'Export-ScheduledJob', 'Get-ScheduledJobResult', 'Remove-OldJobResult','Get-ScheduledJobDetail'
-    ParameterName = 'Name' 
-    ScriptBlock   = $sb 
+    ParameterName = 'Name'
+    ScriptBlock   = $sb
 }
 Register-ArgumentCompleter  @completerParams
 

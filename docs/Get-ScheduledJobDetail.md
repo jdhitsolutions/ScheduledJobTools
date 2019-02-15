@@ -13,7 +13,7 @@ Get details for a PowerShell Scheduled Job
 
 ## SYNTAX
 
-### name
+### name (Default)
 
 ```yaml
 Get-ScheduledJobDetail [-Name] <String[]> [<CommonParameters>]

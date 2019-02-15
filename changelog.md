@@ -1,5 +1,12 @@
 # Change Log for ScheduledJobTools
 
+## v2.1.0
+
++ Added `PSScheduledJob` as a required module to the manifest
++ Added `ScheduledJobResult.format.ps1xml` to format output from `Get-ScheduledJobResult` as a table
++ Revised `Get-ScheduledJobDetail` to have a default parameter set.
++ Updated license copyright year
+
 ## v2.0.0
 
 + Changed minimum version to 5.1 and supporting Desktop edition only

@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version:
+online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Remove-OldJobResult.md
 schema: 2.0.0
 ---
 
@@ -42,7 +42,7 @@ Remove all the but the most recent result for the DailyBackup job.
 ### Example 2
 
 ```powershell
-PS C:\> Get-Scheduledjob | Remove-OldJobResult
+PS C:\> Get-ScheduledJob | Remove-OldJobResult
 ```
 
 Get all scheduled jobs and pipe them to this command to delete all but the most recent result.
@@ -133,6 +133,6 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Remove-Job]()
+[Remove-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/remove-job?view=powershell-5.1&WT.mc_id=ps-gethelp)
 
-[Get-ScheduledJob]()
+[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)

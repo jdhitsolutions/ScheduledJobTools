@@ -6,7 +6,7 @@
     RootModule             = 'ScheduledJobTools.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '2.1.0'
+    ModuleVersion          = '2.2.0'
 
     # Supported PSEditions
     CompatiblePSEditions = @("Desktop")
@@ -21,7 +21,7 @@
     CompanyName            = 'JDH Information Technology Solutions, Inc.'
 
     # Copyright statement for this module
-    Copyright              = '(c)2013-2019 JDH Information Technology Solutions, Inc. All Rights Reserved'
+    Copyright              = '(c)2013-2020 JDH Information Technology Solutions, Inc. All Rights Reserved'
 
     # Description of the functionality provided by this module
     Description            = 'A PowerShell module for managing scheduled jobs and their results.'
@@ -57,7 +57,7 @@
     TypesToProcess         = @()
 
     # Format files (.ps1xml) to be loaded when importing this module
-    FormatsToProcess       = @("ScheduledjobResult.format.ps1xml")
+    FormatsToProcess       = @("formats\ScheduledjobResult.format.ps1xml",".\formats\scheduledjob.format.ps1xml")
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules          = @()

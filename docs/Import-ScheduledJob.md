@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version:
+online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Import-ScheduledJob.md
 schema: 2.0.0
 ---
 

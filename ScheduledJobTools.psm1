@@ -33,7 +33,6 @@ Class ScheduledJobResult {
         $this.HasMoreData = $job.HasMoreData
         $this.ChildJobs = $job.ChildJobs
         $this.Output = $job.Output
-
     }
 
     ScheduledJobResult ([Microsoft.PowerShell.ScheduledJob.ScheduledJob]$job) {
@@ -46,13 +45,15 @@ Class ScheduledJobResult {
         $this.HasMoreData = $job.HasMoreData
         $this.ChildJobs = $job.ChildJobs
         $this.Output = $job.Output
-
     }
 
 }
 
 #set default display properties
 Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, Starttime, Endtime, HasMoreData -Force
+
+#add a property to the schedulejob that shows the next run time
+Update-TypeData -typeName Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition -memberName "NextRun" -memberType ScriptProperty -Value { (Get-ScheduledTask -taskname $this.name | Get-ScheduledTaskInfo).nextRunTime} -force
 
 #add argument completers to auto populate scheduled job names
 $sb = {

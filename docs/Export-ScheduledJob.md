@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version:
+online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Export-ScheduledJob.md
 schema: 2.0.0
 ---
 
@@ -9,7 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-Export a PowerShell scheduled job
+Export a PowerShell scheduled job.
 
 ## SYNTAX
 
@@ -101,7 +101,7 @@ Accept wildcard characters: False
 
 ### -Path
 
-The path to store the xml file. The file name will be the same as the job name. The default is the current location.
+The path to store the XML file. The file name will be the same as the job name. The default is the current location.
 
 ```yaml
 Type: String
@@ -169,8 +169,8 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Export-Clixml]()
+[Export-Clixml](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/export-clixml?view=powershell-5.1&WT.mc_id=ps-gethelp)
 
-[Get-ScheduledJob]()
+[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)
 
-[Import-ScheduledJob]()
+[Import-ScheduledJob](Import-ScheduledJob.md)

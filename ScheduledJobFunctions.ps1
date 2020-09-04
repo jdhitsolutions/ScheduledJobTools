@@ -1,9 +1,9 @@
 Function Get-ScheduledJobDetail {
     [CmdletBinding(DefaultParameterSetName = "name")]
-    [OutputType("PSCustomObject")]
+    [OutputType("ScheduledJobDetail")]
 
     Param(
-        [Parameter(Position = 0, ValueFromPipeline,Mandatory, ParameterSetName = "name")]
+        [Parameter(Position = 0, ValueFromPipeline, Mandatory, ParameterSetName = "name")]
         [ValidateNotNullorEmpty()]
         [string[]]$Name,
 
@@ -19,59 +19,60 @@ Function Get-ScheduledJobDetail {
 
     Process {
 
-            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Using parameter set $($pscmdlet.ParameterSetName)"
-            $jobs = @()
-            if ($PSCmdlet.ParameterSetName -eq 'name') {
-                foreach ($item in $name) {
-                    Try {
-                        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob $item"
-                        $jobs += Get-Scheduledjob -Name $item -ErrorAction Stop
-                    }
-                    Catch {
-                        Write-Warning $_.exception.message
-                    }
+        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Using parameter set $($pscmdlet.ParameterSetName)"
+        $jobs = @()
+        if ($PSCmdlet.ParameterSetName -eq 'name') {
+            foreach ($item in $name) {
+                Try {
+                    Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob $item"
+                    $jobs += Get-ScheduledJob -Name $item -ErrorAction Stop
                 }
-            } #if Name
-            else {
-                Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Using scheduledjob $($scheduledjob.name)"
-                $jobs += $ScheduledJob
+                Catch {
+                    Write-Warning $_.exception.message
+                }
+            }
+        } #if Name
+        else {
+            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Using scheduledjob $($scheduledjob.name)"
+            $jobs += $ScheduledJob
+        }
+
+        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob details"
+        foreach ($job in $jobs) {
+            #get corresponding task
+            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] $($job.name)"
+            $task = Get-ScheduledTask -TaskName $job.name
+            $info = $task | Get-ScheduledTaskInfo
+            [pscustomobject]@{
+                PSTypeName             = "ScheduledJobDetail"
+                ID                     = $job.ID
+                Name                   = $job.name
+                Command                = $job.command
+                Enabled                = $job.enabled
+                State                  = $task.State
+                NextRun                = $info.nextRunTime
+                MaxHistory             = $job.ExecutionHistoryLength
+                RunAs                  = $task.Principal.UserID
+                Frequency              = $job.JobTriggers.Frequency
+                Days                   = $job.JobTriggers.DaysOfWeek
+                RepetitionDuration     = $job.JobTriggers.RepetitionDuration
+                RepetitionInterval     = $job.JobTriggers.RepetitionInterval
+                DoNotAllowDemandStart  = $job.options.DoNotAllowDemandStart
+                IdleDuration           = $job.options.IdleDuration
+                IdleTimeout            = $job.options.IdleTimeout
+                MultipleInstancePolicy = $job.options.MultipleInstancePolicy
+                RestartOnIdleResume    = $job.options.RestartOnIdleResume
+                RunElevated            = $job.options.RunElevated
+                RunWithoutNetwork      = $job.options.RunWithoutNetwork
+                ShowInTaskScheduler    = $job.options.ShowInTaskScheduler
+                StartIfNotIdle         = $job.options.StartIfNotIdle
+                StartIfOnBatteries     = $job.options.StartIfOnBatteries
+                StopIfGoingOffIdle     = $job.options.StopIfGoingOffIdle
+                StopIfGoingOnBatteries = $job.options.StopIfGoingOnBatteries
+                WakeToRun              = $job.options.WakeToRun
             }
 
-            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduledjob details"
-            foreach ($job in $jobs) {
-                #get corresponding task
-                Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] $($job.name)"
-                $task = Get-ScheduledTask -TaskName $job.name
-                $info = $task | Get-ScheduledTaskInfo
-                [pscustomobject]@{
-                    ID                     = $job.ID
-                    Name                   = $job.name
-                    Command                = $job.command
-                    Enabled                = $job.enabled
-                    State                  = $task.State
-                    NextRun                = $info.nextRunTime
-                    MaxHistory             = $job.ExecutionHistoryLength
-                    RunAs                  = $task.Principal.UserID
-                    Frequency              = $job.JobTriggers.Frequency
-                    Days                   = $job.JobTriggers.DaysOfWeek
-                    RepetitionDuration     = $job.JobTriggers.RepetitionDuration
-                    RepetitionInterval     = $job.JobTriggers.RepetitionInterval
-                    DoNotAllowDemandStart  = $job.options.DoNotAllowDemandStart
-                    IdleDuration           = $job.options.IdleDuration
-                    IdleTimeout            = $job.options.IdleTimeout
-                    MultipleInstancePolicy = $job.options.MultipleInstancePolicy
-                    RestartOnIdleResume    = $job.options.RestartOnIdleResume
-                    RunElevated            = $job.options.RunElevated
-                    RunWithoutNetwork      = $job.options.RunWithoutNetwork
-                    ShowInTaskScheduler    = $job.options.ShowInTaskScheduler
-                    StartIfNotIdle         = $job.options.StartIfNotIdle
-                    StartIfOnBatteries     = $job.options.StartIfOnBatteries
-                    StopIfGoingOffIdle     = $job.options.StopIfGoingOffIdle
-                    StopIfGoingOnBatteries = $job.options.StopIfGoingOnBatteries
-                    WakeToRun              = $job.options.WakeToRun
-                }
-
-            } #foreach job
+        } #foreach job
 
     } #process
 
@@ -108,13 +109,13 @@ Function Remove-OldJobResult {
             $items = $ScheduledJob.Name
         }
         Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Removing old job results for $($items -join ',')"
-        Get-Job -name $items | Sort-Object PSEndTime -descending | Select-Object -skip 1  |
-            Remove-Job
-    } #process
+        Get-Job -name $items | Sort-Object PSEndTime -descending | Select-Object -skip 1 |
+        Remove-Job
+} #process
 
-    End {
-        Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
-    } #end
+End {
+    Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
+} #end
 }
 
 
@@ -142,7 +143,7 @@ Function Export-ScheduledJob {
                     $True
                 }
             })]
-        [ValidateScript( {Test-Path $_})]
+        [ValidateScript( { Test-Path $_ })]
         [string]$Path = (Get-Location).Path,
         [switch]$Passthru
     )
@@ -154,7 +155,7 @@ Function Export-ScheduledJob {
     Process {
 
         if ($Name) {
-            Write-verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduled job $job"
+            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduled job $job"
             Try {
                 $ExportJob = Get-ScheduledJob -Name $name -ErrorAction Stop
             }
@@ -169,44 +170,44 @@ Function Export-ScheduledJob {
             $ExportJob = $scheduledjob
         }
 
-        $ExportPath = Join-path -Path $path -ChildPath "$($ExportJob.Name).xml"
+        $ExportPath = Join-Path -Path $path -ChildPath "$($ExportJob.Name).xml"
         Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Starting the export process of $($ExportJob.Name) to $ExportPath"
 
         $ExportJob | Select-Object -property Name,
         @{Name         = "Scriptblock";
             Expression = {
                 ($_.InvocationInfo.Parameters.Item(0) |
-                        Where-Object {$_.name -eq "ScriptBlock"}).value
+                        Where-Object { $_.name -eq "ScriptBlock" }).value
             }
         },
         @{Name         = "FilePath";
             Expression = {
-                ($_.InvocationInfo.Parameters.Item(0)|
-                        Where-Object {$_.name -eq "FilePath"}).value
+                ($_.InvocationInfo.Parameters.Item(0) |
+                        Where-Object { $_.name -eq "FilePath" }).value
             }
         },
         @{Name         = "ArgumentList";
             Expression = {
                 ($_.InvocationInfo.Parameters.Item(0) |
-                        Where-Object {$_.name -eq "ArgumentList"}).value
+                        Where-Object { $_.name -eq "ArgumentList" }).value
             }
         },
         @{Name         = "Authentication";
             Expression = {
                 ($_.InvocationInfo.Parameters.Item(0) |
-                        Where-Object {$_.name -eq "Authentication"}).value
+                        Where-Object { $_.name -eq "Authentication" }).value
             }
         },
         @{Name         = "InitializationScript";
             Expression = {
                 ($_.InvocationInfo.Parameters.Item(0) |
-                        Where-Object {$_.name -eq "InitializationScript"}).value
+                        Where-Object { $_.name -eq "InitializationScript" }).value
             }
         },
         @{Name         = "RunAs32";
             Expression = {
                 ($_.InvocationInfo.Parameters.Item(0) |
-                        Where-Object {$_.name -eq "RunAs32"}).value
+                        Where-Object { $_.name -eq "RunAs32" }).value
             }
         },
         @{Name         = "Credential";
@@ -226,19 +227,19 @@ Function Export-ScheduledJob {
                 $_.JobTriggers | Select-Object -property * -ExcludeProperty JobDefinition
             }
         }, ExecutionHistoryLength, Enabled |
-            Export-Clixml -Path $ExportPath
+        Export-Clixml -Path $ExportPath
 
-        if ($Passthru) {
-            Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Writing the export file item to the pipeline"
-            Get-Item -Path $ExportPath
-        }
+    if ($Passthru) {
+        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Writing the export file item to the pipeline"
+        Get-Item -Path $ExportPath
+    }
 
-        Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Export finished."
-    } #process
+    Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Export finished."
+} #process
 
-    End {
-        Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
-    } #end
+End {
+    Write-Verbose "[$((Get-Date).TimeofDay)     END] Ending $($myinvocation.MyCommand)"
+} #end
 } #end Export-ScheduledJob
 
 
@@ -441,7 +442,7 @@ Function Get-ScheduledJobResult {
         [Parameter(Position = 0)]
         [ValidateNotNullorEmpty()]
         [string]$Name = "*",
-        [validatescript( {$_ -gt 0})]
+        [validatescript( { $_ -gt 0 })]
         [int]$Newest = 1,
         [switch]$All
     )
@@ -454,10 +455,11 @@ Function Get-ScheduledJobResult {
         #only show results for Enabled jobs
         Try {
             Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting scheduled jobs for $name"
-            $jobs = Get-ScheduledJob -Name $name -ErrorAction Stop -ErrorVariable ev
+            $jobs = Get-ScheduledJob -Name $name -ErrorAction Stop #-ErrorVariable ev
         }
         Catch {
-            Write-Warning $ev.errorRecord.Exception
+            Write-Warning "$Name : $($_.exception.message)"
+            # $ev.errorRecord.Exception
         }
 
         if ($jobs) {
@@ -468,21 +470,21 @@ Function Get-ScheduledJobResult {
             }
             else {
                 Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting enabled jobs only"
-                $jobs = $jobs | where-object Enabled
+                $jobs = $jobs | Where-Object Enabled
             }
             Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Processing $($jobs.count) found jobs"
             Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Getting newest $newest job results"
 
-            $data = $jobs | foreach-object {
+            $data = $jobs | ForEach-Object {
                 #get job and select all properties to create a custom object
                 Try {
                     Write-Verbose "[$((Get-Date).TimeofDay) PROCESS] Trying to get jobs for $($_.name)"
-                    Get-Job -Name $_.name -Newest $Newest -ErrorAction stop | foreach-object {
+                    Get-Job -Name $_.name -Newest $Newest -ErrorAction stop | ForEach-Object {
                         [scheduledjobresult]::new($_)
                     }
-
                 } #Try
                 Catch {
+                    Write-Warning $_.exception.message
                     Write-Warning "Scheduled job $($_.TargetObject) has not been run yet."
                 }
             } #Foreach Scheduled Job

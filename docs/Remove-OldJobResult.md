@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Remove-OldJobResult.md
+online version: https://bit.ly/3eVNb6b
 schema: 2.0.0
 ---
 
@@ -133,6 +133,8 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Remove-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/remove-job?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Get-Job]()
 
-[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Remove-Job]())
+
+[Get-ScheduledJob]()

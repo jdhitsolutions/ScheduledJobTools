@@ -1,11 +1,11 @@
-﻿. $PSScriptRoot\ScheduledJobFunctions.ps1
+﻿
+(Get-ChildItem -Path $PSScriptRoot\functions\*.ps1).Foreach( { . $_.FullName })
 
 Class ScheduledJobResult {
-
     [string]$Name
     [DateTime]$StartTime
     [DateTime]$EndTime
-    [timespan]$Runtime
+    [TimeSpan]$Runtime
     [Int]$ID
     [string]$State
     [bool]$HasMoreData
@@ -14,7 +14,7 @@ Class ScheduledJobResult {
 
     [PSObject[]] GetResults() {
         if ($this.HasMoreData) {
-            $data = Receive-Job -id $this.id -keep
+            $data = Receive-Job -Id $this.id -Keep
         }
         else {
             $data = $null
@@ -23,7 +23,7 @@ Class ScheduledJobResult {
     }
 
     ScheduledJobResult ([int]$ID) {
-        $job = Get-Job -id $ID
+        $job = Get-Job -Id $ID
         $this.Name = $job.Name
         $this.StartTime = $job.PSBeginTime
         $this.EndTime = $job.PSEndTime
@@ -50,23 +50,25 @@ Class ScheduledJobResult {
 }
 
 #set default display properties
-Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, Starttime, Endtime, HasMoreData -Force
+Update-TypeData -TypeName ScheduledJobResult -DefaultDisplayPropertySet Name, ID, State, Runtime, StartTime, EndTime, HasMoreData -Force
 
-#add a property to the schedulejob that shows the next run time
-Update-TypeData -typeName Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition -memberName "NextRun" -memberType ScriptProperty -Value { (Get-ScheduledTask -taskname $this.name | Get-ScheduledTaskInfo).nextRunTime} -force
+#add a property to the ScheduledJob that shows the next run time
+#17 Oct 2024 -these have been moved to the types ps1xml file.
+# Update-TypeData -TypeName Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition -MemberName "NextRun" -MemberType ScriptProperty -Value { (Get-ScheduledTask -TaskName $this.name | Get-ScheduledTaskInfo).nextRunTime } -Force
+# Update-TypeData -TypeName Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition -MemberName "LastRun" -MemberType ScriptProperty -Value { (Get-job $This.Name -Newest 1).PSEndTime } -Force
 
 #add argument completers to auto populate scheduled job names
 $sb = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    (Get-ScheduledJob -Name "$wordtoComplete*").name | foreach-object {
+    (Get-ScheduledJob -Name "$WordToComplete*").name | ForEach-Object {
         [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
 }
 
 $completerParams = @{
-    CommandName   = 'Export-ScheduledJob', 'Get-ScheduledJobResult', 'Remove-OldJobResult','Get-ScheduledJobDetail'
+    CommandName   = 'Export-ScheduledJob', 'Get-ScheduledJobResult', 'Remove-OldJobResult', 'Get-ScheduledJobDetail'
     ParameterName = 'Name'
     ScriptBlock   = $sb
 }
-Register-ArgumentCompleter  @completerParams
+Register-ArgumentCompleter @completerParams
 

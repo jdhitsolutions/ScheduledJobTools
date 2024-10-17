@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Get-ScheduledJobResult.md
+online version: https://bit.ly/3vUaiVZ
 schema: 2.0.0
 ---
 
@@ -33,10 +33,10 @@ PS C:\> Get-ScheduledJobResult
 
 ID Name            StartTime             EndTime               Runtime          State
 -- ----            ---------             -------               -------          -----
-20 OfflineTickle   2/15/2020 12:00:08 PM 2/15/2020 12:00:09 PM 00:00:00.9199788 Completed
-25 DownloadHelp    2/15/2020 8:00:04 AM  2/15/2020 8:00:06 AM  00:00:02.2474913 Completed
-44 RemoteOpWatcher 2/15/2020 12:49:53 PM 2/15/2020 12:49:53 PM 00:00:00.4630425 Completed
-15 myTasksEmail    2/15/2020 8:00:04 AM  2/15/2020 8:00:06 AM  00:00:01.6949456 Completed
+20 OfflineTickle   2/15/2024 12:00:08 PM 2/15/2024 12:00:09 PM 00:00:00.9199788 Completed
+25 DownloadHelp    2/15/2024 8:00:04 AM  2/15/2024 8:00:06 AM  00:00:02.2474913 Completed
+44 RemoteOpWatcher 2/15/2024 12:49:53 PM 2/15/2024 12:49:53 PM 00:00:00.4630425 Completed
+15 myTasksEmail    2/15/2024 8:00:04 AM  2/15/2024 8:00:06 AM  00:00:01.6949456 Completed
 ```
 
 ### EXAMPLE 2
@@ -46,9 +46,9 @@ PS C:\> Get-ScheduledJobResult myTasksEmail -newest 3
 
 ID Name         StartTime            EndTime              Runtime          State
 -- ----         ---------            -------              -------          -----
-15 myTasksEmail 2/15/2020 8:00:04 AM 2/15/2020 8:00:06 AM 00:00:01.6949456 Completed
-14 myTasksEmail 2/14/2020 8:00:04 AM 2/14/2020 8:00:06 AM 00:00:01.6648106 Completed
-13 myTasksEmail 2/13/2020 8:00:04 AM 2/13/2020 8:00:05 AM 00:00:01.4718193 Completed
+15 myTasksEmail 2/15/2024 8:00:04 AM 2/15/2024 8:00:06 AM 00:00:01.6949456 Completed
+14 myTasksEmail 2/14/2024 8:00:04 AM 2/14/2024 8:00:06 AM 00:00:01.6648106 Completed
+13 myTasksEmail 2/13/2024 8:00:04 AM 2/13/2024 8:00:05 AM 00:00:01.4718193 Completed
 ```
 
 Get the newest 3 job results for the myTasksEmail scheduled job.
@@ -62,8 +62,8 @@ Name        : OfflineTickle
 ID          : 20
 State       : Completed
 Runtime     : 00:00:00.9199788
-StartTime   : 2/15/2020 12:00:08 PM
-EndTime     : 2/15/2020 12:00:09 PM
+StartTime   : 2/15/2024 12:00:08 PM
+EndTime     : 2/15/2024 12:00:09 PM
 HasMoreData : True
 ```
 
@@ -137,6 +137,6 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Get-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-job?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Get-Job]()
 
-[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Get-ScheduledJob]()

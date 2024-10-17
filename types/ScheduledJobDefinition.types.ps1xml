@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file was created with New-PSPropertySet from the
+PSTypeExtensionTools module which you can install from
+the PowerShell Gallery.
+
+Use Update-TypeData to append this file in your PowerShell session.
+
+Created 10/17/2024 14:43:57
+-->
+<Types>
+  <Type>
+    <Name>Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition</Name>
+    <Members>
+      <PropertySet>
+        <Name>RunInfo</Name>
+        <ReferencedProperties>
+          <Name>Name</Name>
+          <Name>NextRun</Name>
+          <Name>LastRun</Name>
+          <Name>Enabled</Name>
+        </ReferencedProperties>
+      </PropertySet>
+      <ScriptProperty>
+        <Name>NextRun</Name>
+        <GetScriptBlock> (Get-ScheduledTask -TaskName $this.name | Get-ScheduledTaskInfo).nextRunTime </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>LastRun</Name>
+        <GetScriptBlock> (Get-job $This.Name -Newest 1).PSEndTime </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>

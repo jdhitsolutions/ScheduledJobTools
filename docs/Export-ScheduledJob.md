@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Export-ScheduledJob.md
+online version: https://bit.ly/3eQGcf3
 schema: 2.0.0
 ---
 
@@ -22,8 +22,7 @@ Export-ScheduledJob [-Name] <String> [-Path <String>] [-Passthru] [-WhatIf] [-Co
 ### job
 
 ```yaml
-Export-ScheduledJob [-ScheduledJob] <ScheduledJobDefinition> [-Path <String>] [-Passthru] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Export-ScheduledJob [-ScheduledJob] <ScheduledJobDefinition> [-Path <String>] [-Passthru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -38,8 +37,7 @@ This command will export a PowerShell scheduled job to an XML file using the Exp
 PS C:\> Export-ScheduledJob MyJob -path \\chi-fp01\it\jobs
 ```
 
-Export a single job to \\\\chi-fp01\it\jobs.
-The filename will be MyJob.xml.
+Export a single job to \\chi-fp01\it\jobs. The filename will be MyJob.xml.
 
 ### EXAMPLE 2
 
@@ -169,8 +167,8 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Export-Clixml](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/export-clixml?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Export-Clixml]()
 
-[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Get-ScheduledJob]()
 
 [Import-ScheduledJob](Import-ScheduledJob.md)

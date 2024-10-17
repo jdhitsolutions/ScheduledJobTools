@@ -31,12 +31,12 @@ PS C:\> Get-ScheduledJobResult
 
 ID  Name                StartTime             EndTime               Runtime          State
 --  ----                ---------             -------               -------          -----
-551 OfflineTickle       9/4/2020 10:00:13 AM  9/4/2020 10:00:14 AM  00:00:01.0010018 Completed
-154 myTasksEmail        9/4/2020 8:00:08 AM   9/4/2020 8:00:11 AM   00:00:02.9260021 Completed
-58  WeeklyFullBackup    8/28/2020 10:00:08 PM 8/28/2020 10:14:43 PM 00:14:35.6991443 Completed
-553 RemoteOpWatcher     9/4/2020 10:33:56 AM  9/4/2020 10:33:56 AM  00:00:00.6534636 Completed
-153 DailyIncremental    9/3/2020 10:00:07 PM  9/3/2020 10:00:39 PM  00:00:31.3470147 Completed
-72  JDHITBackup         9/3/2020 6:00:07 PM   9/3/2020 6:00:10 PM   00:00:03.1494835 Completed
+551 OfflineTickle       9/4/2024 10:00:13 AM  9/4/2024 10:00:14 AM  00:00:01.0010018 Completed
+154 myTasksEmail        9/4/2024 8:00:08 AM   9/4/2024 8:00:11 AM   00:00:02.9260021 Completed
+58  WeeklyFullBackup    8/28/2024 10:00:08 PM 8/28/2024 10:14:43 PM 00:14:35.6991443 Completed
+553 RemoteOpWatcher     9/4/2024 10:33:56 AM  9/4/2024 10:33:56 AM  00:00:00.6534636 Completed
+153 DailyIncremental    9/3/2024 10:00:07 PM  9/3/2024 10:00:39 PM  00:00:31.3470147 Completed
+72  JDHITBackup         9/3/2024 6:00:07 PM   9/3/2024 6:00:10 PM   00:00:03.1494835 Completed
 ```
 
 The function has an alias of `ljr`.
@@ -58,7 +58,7 @@ Name                   : DailyIncremental
 Command                : C:\scripts\PSBackup\DailyIncrementalBackup.ps1
 Enabled                : True
 State                  : Ready
-NextRun                : 9/5/2020 10:00:00 PM
+NextRun                : 9/5/2024 10:00:00 PM
 MaxHistory             : 7
 RunAs                  : BOVINE320\Jeff
 Frequency              : Weekly
@@ -85,32 +85,40 @@ WakeToRun              : True
 When you import the module, it will modify the ScheduledJob object to define a script property called `NextRun`. This makes it easier to view when a job is scheduled to run again.
 
 ```text
-PS C:\> Get-ScheduledJob JDHITBackup | Select-Object name,NextRun
+PS C:\> Get-ScheduledJob JDHITBackup | Select-Object Name,NextRun
 
 Name        NextRun
 ----        -------
-JDHITBackup 9/4/2020 6:00:00 PM
+JDHITBackup 9/4/2024 6:00:00 PM
 ```
 
 Or you can use a custom table view.
 
 ```text
-PS C:\> Get-ScheduledJob | Format-Table -view nextrun
+PS C:\> Get-ScheduledJob | Format-Table -view NextRun
 
 Id Enabled Name                NextRun               Command
 -- ------- ----                -------               -------
-2  False   DailyDiskReport     9/4/2020 11:00:00 PM  C:\scripts\DiskReports.ps1
-3  True    DailyIncremental    9/5/2020 10:00:00 PM  C:\scripts\PSBackup\DailyIncrementalBackup.ps1
+2  False   DailyDiskReport     9/4/2024 11:00:00 PM  C:\scripts\DiskReports.ps1
+3  True    DailyIncremental    9/5/2024 10:00:00 PM  C:\scripts\PSBackup\DailyIncrementalBackup.ps1
 4  True    DailyWatcher                              ...
-5  False   HelpUpdate          9/28/2020 12:00:00 PM  Update-Help
-6  True    JDHITBackup         9/4/2020 6:00:00 PM   C:\scripts\Backup-JDHIT.ps1
-8  True    myTasksEmail        9/5/2020 8:00:00 AM   ...
-9  True    OfflineTickle       9/4/2020 11:00:00 AM  ...
-10 True    RemoteOpWatcher     9/4/2020 10:41:41 AM  ...
-11 True    WeeklyFullBackup    9/4/2020 10:00:00 PM  C:\scripts\PSBackup\WeeklyFullBackup.ps1
-73 True    tmp50E8             9/4/2020 12:45:45 PM  ...
+5  False   HelpUpdate          9/28/2024 12:00:00 PM  Update-Help
+6  True    JDHITBackup         9/4/2024 6:00:00 PM   C:\scripts\Backup-JDHIT.ps1
+8  True    myTasksEmail        9/5/2024 8:00:00 AM   ...
+9  True    OfflineTickle       9/4/2024 11:00:00 AM  ...
+10 True    RemoteOpWatcher     9/4/2024 10:41:41 AM  ...
+11 True    WeeklyFullBackup    9/4/2024 10:00:00 PM  C:\scripts\PSBackup\WeeklyFullBackup.ps1
+73 True    tmp50E8             9/4/2024 12:45:45 PM  ...
+```
+
+Version 2.3.0 introduced a property set called `RunInfo`.
+
+```text
+PS C:\> Get-ScheduledJob WeeklyFullBackup | Select-Object RunInfo
+
+Name             NextRun                LastRun                Enabled
+----             -------                -------                -------
+WeeklyFullBackup 10/18/2024 10:00:00 PM 10/11/2024 10:14:16 PM    True
 ```
 
 The view uses ANSI escape sequences and will color `False` in red.
-
-*last updated 4 September 2020*

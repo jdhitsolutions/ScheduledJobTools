@@ -43,10 +43,6 @@ format type data generated 09/04/2020 09:48:10 by BOVINE320\Jeff
         <TableRowEntries>
           <TableRowEntry>
             <TableColumnItems>
-              <!--
-            By default the entries use property names, but you can replace them with scriptblocks.
-            <ScriptBlock>$_.foo /1mb -as [int]</ScriptBlock>
--->
               <TableColumnItem>
                 <PropertyName>Id</PropertyName>
               </TableColumnItem>

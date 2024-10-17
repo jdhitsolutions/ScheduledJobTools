@@ -1,7 +1,7 @@
 ---
 external help file: ScheduledJobTools-help.xml
 Module Name: ScheduledJobTools
-online version: https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Get-ScheduledJobDetail.md
+online version: https://bit.ly/3nNLImP
 schema: 2.0.0
 ---
 
@@ -43,7 +43,7 @@ Name                   : JDHITBackup
 Command                : C:\scripts\Backup-JDHIT.ps1
 Enabled                : True
 State                  : Ready
-NextRun                : 6/29/2020 6:00:00 PM
+NextRun                : 6/29/2024 6:00:00 PM
 MaxHistory             : 5
 RunAs                  : Jeff
 Frequency              : Daily
@@ -70,10 +70,10 @@ Get job details for a single scheduled job.
 ### Example 2
 
 ```powershell
-PS C:\> Get-ScheduledJob | Get-ScheduledJobDetail | Out-Gridview
+PS C:\> Get-ScheduledJob | Get-ScheduledJobDetail | Out-GridView
 ```
 
-Get job detail for all scheduled jobs and pipe the results to Out-Gridview.
+Get job detail for all scheduled jobs and pipe the results to Out-GridView.
 
 ## PARAMETERS
 
@@ -129,7 +129,7 @@ Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell
 
 ## RELATED LINKS
 
-[Get-ScheduledJob](https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp)
+[Get-ScheduledJob]()
 
 [Get-ScheduledTask]()
 

@@ -17,9 +17,9 @@
         <maml:name>Export-ScheduledJob</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>Name</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The name of a PowerShell scheduled job.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -29,9 +29,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -40,9 +40,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Passthru</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Write the XML file object to the pipeline.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -51,9 +51,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Path</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The path to store the XML file. The file name will be the same as the job name. The default is the current location.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -63,9 +63,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -77,9 +77,9 @@
         <maml:name>Export-ScheduledJob</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
           <maml:name>ScheduledJob</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>A PowerShell scheduled job object.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
           <dev:type>
             <maml:name>ScheduledJobDefinition</maml:name>
@@ -89,9 +89,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -100,9 +100,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Passthru</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Write the XML file object to the pipeline.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -111,9 +111,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Path</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The path to store the XML file. The file name will be the same as the job name. The default is the current location.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -123,9 +123,9 @@
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -137,9 +137,9 @@
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
         <maml:name>Confirm</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -149,9 +149,9 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>Name</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The name of a PowerShell scheduled job.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -161,9 +161,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Passthru</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Write the XML file object to the pipeline.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -173,9 +173,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Path</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The path to store the XML file. The file name will be the same as the job name. The default is the current location.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -185,9 +185,9 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
         <maml:name>ScheduledJob</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>A PowerShell scheduled job object.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
         <dev:type>
           <maml:name>ScheduledJobDefinition</maml:name>
@@ -197,9 +197,9 @@
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -254,7 +254,7 @@
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Export-ScheduledJob MyJob -path \\chi-fp01\it\jobs</dev:code>
         <dev:remarks>
-          <maml:para>Export a single job to \\chi-fp01\it\jobs. The filename will be MyJob.xml.</maml:para>
+          <maml:para>Export a single job to \chi-fp01\it\jobs. The filename will be MyJob.xml.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -268,15 +268,15 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Export-ScheduledJob.md</maml:uri>
+        <maml:uri>https://bit.ly/3eQGcf3</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Export-Clixml</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/export-clixml?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScheduledJob</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Import-ScheduledJob</maml:linkText>
@@ -301,9 +301,9 @@
         <maml:name>Get-ScheduledJobDetail</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>Name</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Enter the name of a scheduled job.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
             <maml:name>String[]</maml:name>
@@ -316,9 +316,9 @@
         <maml:name>Get-ScheduledJobDetail</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
           <maml:name>ScheduledJob</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>A scheduled job object.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
           <dev:type>
             <maml:name>ScheduledJobDefinition</maml:name>
@@ -331,9 +331,9 @@
     <command:parameters>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>Name</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Enter the name of a scheduled job.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
           <maml:name>String[]</maml:name>
@@ -343,9 +343,9 @@
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
         <maml:name>ScheduledJob</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>A scheduled job object.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
         <dev:type>
           <maml:name>ScheduledJobDefinition</maml:name>
@@ -399,7 +399,7 @@ Name                   : JDHITBackup
 Command                : C:\scripts\Backup-JDHIT.ps1
 Enabled                : True
 State                  : Ready
-NextRun                : 6/29/2020 6:00:00 PM
+NextRun                : 6/29/2024 6:00:00 PM
 MaxHistory             : 5
 RunAs                  : Jeff
 Frequency              : Daily
@@ -425,20 +425,20 @@ WakeToRun              : False</dev:code>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Get-ScheduledJob | Get-ScheduledJobDetail | Out-Gridview</dev:code>
+        <dev:code>PS C:\&gt; Get-ScheduledJob | Get-ScheduledJobDetail | Out-GridView</dev:code>
         <dev:remarks>
-          <maml:para>Get job detail for all scheduled jobs and pipe the results to Out-Gridview.</maml:para>
+          <maml:para>Get job detail for all scheduled jobs and pipe the results to Out-GridView.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Get-ScheduledJobDetail.md</maml:uri>
+        <maml:uri>https://bit.ly/3nNLImP</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScheduledJob</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScheduledTask</maml:linkText>
@@ -468,9 +468,9 @@ WakeToRun              : False</dev:code>
         <maml:name>Get-ScheduledJobResult</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Name</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The name of a PowerShell scheduled job.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -480,9 +480,9 @@ WakeToRun              : False</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Newest</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The number of newest job results to retrieve.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
             <maml:name>Int32</maml:name>
@@ -492,9 +492,9 @@ WakeToRun              : False</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>All</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Display all scheduled jobs. The default is enabled only.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -506,9 +506,9 @@ WakeToRun              : False</dev:code>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>Name</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The name of a PowerShell scheduled job.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -518,9 +518,9 @@ WakeToRun              : False</dev:code>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Newest</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The number of newest job results to retrieve.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
           <maml:name>Int32</maml:name>
@@ -530,9 +530,9 @@ WakeToRun              : False</dev:code>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>All</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Display all scheduled jobs. The default is enabled only.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -574,10 +574,10 @@ WakeToRun              : False</dev:code>
 
 ID Name            StartTime             EndTime               Runtime          State
 -- ----            ---------             -------               -------          -----
-20 OfflineTickle   2/15/2020 12:00:08 PM 2/15/2020 12:00:09 PM 00:00:00.9199788 Completed
-25 DownloadHelp    2/15/2020 8:00:04 AM  2/15/2020 8:00:06 AM  00:00:02.2474913 Completed
-44 RemoteOpWatcher 2/15/2020 12:49:53 PM 2/15/2020 12:49:53 PM 00:00:00.4630425 Completed
-15 myTasksEmail    2/15/2020 8:00:04 AM  2/15/2020 8:00:06 AM  00:00:01.6949456 Completed</dev:code>
+20 OfflineTickle   2/15/2024 12:00:08 PM 2/15/2024 12:00:09 PM 00:00:00.9199788 Completed
+25 DownloadHelp    2/15/2024 8:00:04 AM  2/15/2024 8:00:06 AM  00:00:02.2474913 Completed
+44 RemoteOpWatcher 2/15/2024 12:49:53 PM 2/15/2024 12:49:53 PM 00:00:00.4630425 Completed
+15 myTasksEmail    2/15/2024 8:00:04 AM  2/15/2024 8:00:06 AM  00:00:01.6949456 Completed</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -588,9 +588,9 @@ ID Name            StartTime             EndTime               Runtime          
 
 ID Name         StartTime            EndTime              Runtime          State
 -- ----         ---------            -------              -------          -----
-15 myTasksEmail 2/15/2020 8:00:04 AM 2/15/2020 8:00:06 AM 00:00:01.6949456 Completed
-14 myTasksEmail 2/14/2020 8:00:04 AM 2/14/2020 8:00:06 AM 00:00:01.6648106 Completed
-13 myTasksEmail 2/13/2020 8:00:04 AM 2/13/2020 8:00:05 AM 00:00:01.4718193 Completed</dev:code>
+15 myTasksEmail 2/15/2024 8:00:04 AM 2/15/2024 8:00:06 AM 00:00:01.6949456 Completed
+14 myTasksEmail 2/14/2024 8:00:04 AM 2/14/2024 8:00:06 AM 00:00:01.6648106 Completed
+13 myTasksEmail 2/13/2024 8:00:04 AM 2/13/2024 8:00:05 AM 00:00:01.4718193 Completed</dev:code>
         <dev:remarks>
           <maml:para>Get the newest 3 job results for the myTasksEmail scheduled job.</maml:para>
         </dev:remarks>
@@ -603,8 +603,8 @@ Name        : OfflineTickle
 ID          : 20
 State       : Completed
 Runtime     : 00:00:00.9199788
-StartTime   : 2/15/2020 12:00:08 PM
-EndTime     : 2/15/2020 12:00:09 PM
+StartTime   : 2/15/2024 12:00:08 PM
+EndTime     : 2/15/2024 12:00:09 PM
 HasMoreData : True</dev:code>
         <dev:remarks>
           <maml:para>Get all properties of the result object.</maml:para>
@@ -614,15 +614,15 @@ HasMoreData : True</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Get-ScheduledJobResult.md</maml:uri>
+        <maml:uri>https://bit.ly/3vUaiVZ</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Job</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-job?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScheduledJob</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -643,9 +643,9 @@ HasMoreData : True</dev:code>
         <maml:name>Import-ScheduledJob</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="name, pspath">
           <maml:name>Path</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The path and file name with the exported job definition.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
             <maml:name>String</maml:name>
@@ -655,9 +655,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -666,9 +666,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Passthru</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Write the new job to the pipeline.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -677,9 +677,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -691,9 +691,9 @@ HasMoreData : True</dev:code>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
         <maml:name>Confirm</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -703,9 +703,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Passthru</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Write the new job to the pipeline.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -715,9 +715,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="name, pspath">
         <maml:name>Path</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The path and file name with the exported job definition.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
           <maml:name>String</maml:name>
@@ -727,9 +727,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -783,7 +783,7 @@ HasMoreData : True</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Import-ScheduledJob.md</maml:uri>
+        <maml:uri>https://bit.ly/2Rn2EEn</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Register-ScheduledJob</maml:linkText>
@@ -816,9 +816,9 @@ HasMoreData : True</dev:code>
         <maml:name>Remove-OldJobResult</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>Name</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>The name of a scheduled job.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
             <maml:name>String[]</maml:name>
@@ -828,9 +828,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -839,9 +839,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -853,9 +853,9 @@ HasMoreData : True</dev:code>
         <maml:name>Remove-OldJobResult</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
           <maml:name>ScheduledJob</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>A scheduled job object.</maml:para>
-          </maml:Description>
+          </maml:description>
           <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
           <dev:type>
             <maml:name>ScheduledJobDefinition</maml:name>
@@ -865,9 +865,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
           <maml:name>Confirm</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -876,9 +876,9 @@ HasMoreData : True</dev:code>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
-          <maml:Description>
+          <maml:description>
             <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-          </maml:Description>
+          </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
             <maml:uri />
@@ -890,9 +890,9 @@ HasMoreData : True</dev:code>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
         <maml:name>Confirm</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -902,9 +902,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>Name</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>The name of a scheduled job.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
           <maml:name>String[]</maml:name>
@@ -914,9 +914,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="job">
         <maml:name>ScheduledJob</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>A scheduled job object.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="true" variableLength="false">ScheduledJobDefinition</command:parameterValue>
         <dev:type>
           <maml:name>ScheduledJobDefinition</maml:name>
@@ -926,9 +926,9 @@ HasMoreData : True</dev:code>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
-        <maml:Description>
+        <maml:description>
           <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
-        </maml:Description>
+        </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
           <maml:name>SwitchParameter</maml:name>
@@ -989,15 +989,19 @@ HasMoreData : True</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/jdhitsolutions/ScheduledJobTools/blob/master/docs/Remove-OldJobResult.md</maml:uri>
+        <maml:uri>https://bit.ly/3eVNb6b</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Job</maml:linkText>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Remove-Job</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.core/remove-job?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScheduledJob</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscheduledjob/get-scheduledjob?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
